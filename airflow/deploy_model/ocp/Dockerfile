@@ -3,6 +3,10 @@ FROM quay.io/ml-aml-workshop/python:3.7-slimv2
 WORKDIR /microservice
 COPY requirements.txt /microservice/
 RUN pip install -r requirements.txt
+RUN pip install seldon-core
+RUN pip install joblib
+RUN pip install category_encoders==2.2.2
+
 COPY Predictor.py  Transformer.py model.pkl CustomerChurnOrdinalEncoder.pkl CustomerChurnOneHotEncoder.pkl /microservice/
 
 ENV PERSISTENCE 0

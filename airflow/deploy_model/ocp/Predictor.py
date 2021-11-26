@@ -1,7 +1,7 @@
 import joblib
 import pandas as pd
 import numpy as np
-from alibi_detect.utils.saving import load_detector
+# from alibi_detect.utils.saving import load_detector
 import json
 
 
@@ -11,7 +11,7 @@ import joblib
 class Predictor(object):
 
     def __init__(self):
-        self.model = joblib.load('model.pkl.sav')
+        self.model = joblib.load('model.pkl')
 
     def predict(self, X, features_names):
         return self.model.predict_proba(X)
