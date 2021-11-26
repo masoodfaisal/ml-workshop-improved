@@ -14,6 +14,8 @@ import mlflow
 from minio import Minio
 import openshift as oc
 from jinja2 import Template
+import time
+
 
 os.environ['MLFLOW_S3_ENDPOINT_URL']='http://minio-ml-workshop:9000'
 os.environ['AWS_ACCESS_KEY_ID']='minio'
@@ -123,7 +125,9 @@ with oc.api_server(server):
             applied_template = Template(open("SeldonDeploy.yaml").read())
             print(applied_template.render(template_data))
             oc.apply(applied_template.render(template_data))
-
+            
+            time.sleep(10)
+            
             route_count = oc.selector(f"route/{build_name}").count_existing()
             print(route_count)
             if route_count == 0:
