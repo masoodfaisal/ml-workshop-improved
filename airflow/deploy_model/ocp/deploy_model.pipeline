@@ -14,7 +14,7 @@
           "op": "execute-python-node",
           "app_data": {
             "filename": "ocp_deploy.py",
-            "runtime_image": "quay.io/ml-aml-workshop/airflow-python-runner:0.0.5",
+            "runtime_image": "quay.io/ml-aml-workshop/airflow-python-runner:0.0.8",
             "include_subdirectories": false,
             "outputs": [],
             "env_vars": [

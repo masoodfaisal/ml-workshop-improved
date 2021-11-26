@@ -63,7 +63,10 @@ def download_artifacts():
 #     print("downloading artifacts from s3 bucket " + artifact_location)
 
     data_file_model = minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/model/model.pkl", "model.pkl")
-    data_file_requirements = minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/model/model.pkl", "requirements.txt")
+    data_file_requirements = minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/model/requirements.txt", "requirements.txt")
+    minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/CustomerChurnOrdinalEncoder.pkl", "CustomerChurnOrdinalEncoder.pkl")
+    minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/CustomerChurnOneHotEncoder.pkl", "CustomerChurnOneHotEncoder.pkl")
+    
     #Using boto3 Download the files from mlflow, the file path is in the model meta
     #write the files to the file system
     print("download successful")

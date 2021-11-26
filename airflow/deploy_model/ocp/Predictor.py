@@ -11,7 +11,7 @@ import joblib
 class Predictor(object):
 
     def __init__(self):
-        self.model = joblib.load('CustomerChurnPredictor.sav')
+        self.model = joblib.load('model.pkl.sav')
 
     def predict(self, X, features_names):
         return self.model.predict_proba(X)
