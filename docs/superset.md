@@ -1,3 +1,6 @@
+# Add Trino Connection
+trino://admin@trino-service:8080/
+
 # Create Hive Tables
 ```sql
 CREATE TABLE hive.default.customers (
