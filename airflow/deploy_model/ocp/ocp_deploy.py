@@ -126,18 +126,21 @@ with oc.api_server(server):
             print(applied_template.render(template_data))
             oc.apply(applied_template.render(template_data))
             
-            time.sleep(10)
+
             
             route_count = oc.selector(f"route/{build_name}").count_existing()
             print(route_count)
             if route_count == 0:
                 service_name = "model-" + run_id + "-" + model_name
-                service_count = oc.selector(f"service/{service_name}").count_existing()
-                if service_count > 0:
-                    service = oc.selector(f"service/{service_name}").object()
-                    print(service.name())
-                    oc.oc_action(oc.cur_context(), "expose", cmd_args=["service", service.name(), "--name", service.name()])
-                else:
-                    print(f"Service name does not exist {service_name}")
+                while True:
+                    service_count = oc.selector(f"service/{service_name}").count_existing()
+                    if service_count > 0:
+                        service = oc.selector(f"service/{service_name}").object()
+                        print(service.name())
+                        oc.oc_action(oc.cur_context(), "expose", cmd_args=["service", service.name(), "--name", service.name()])
+                        break
+                    else:
+                        print(f"Service name does not exist {service_name}")
+                        time.sleep(10)
             else:
                 print(f"Route already exists {service_name}")
