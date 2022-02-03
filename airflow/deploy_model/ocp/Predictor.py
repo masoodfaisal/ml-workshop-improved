@@ -14,7 +14,15 @@ class Predictor(object):
         self.model = joblib.load('model.pkl')
 
     def predict(self, X, features_names):
-        return self.model.predict_proba(X)
+        prediction = self.model.predict_proba(X)
+                                              
+        class_name = ['Not Churn', 'Churn']                                              
+        predicted_class =   np.argmax(prediction)                                    
+        print('Predicted Class name: ', class_name[predicted_class])
+        predicted_class_prob = np.max(prediction)
+        print('Predicted class Certainty: ', predicted_class_prob)
+
+        return [predicted_class, predicted_class_prob]
 
 
 # class Predictor(object):

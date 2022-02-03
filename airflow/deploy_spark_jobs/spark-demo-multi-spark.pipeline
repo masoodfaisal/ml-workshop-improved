@@ -115,6 +115,11 @@
                   "id": "a6b47867-0b6c-46c8-a79c-18824dbae6d6",
                   "node_id_ref": "d5009697-771e-4f71-bc20-e52d905c9f9d",
                   "port_id_ref": "outPort"
+                },
+                {
+                  "id": "c18eb3fa-7169-4f71-8d44-953b1b27448d",
+                  "node_id_ref": "2f11f50f-cf77-4dbc-9f7b-93f4d9764a4a",
+                  "port_id_ref": "outPort"
                 }
               ]
             }
