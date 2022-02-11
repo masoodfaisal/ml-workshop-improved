@@ -15,7 +15,7 @@ def get_hyper_paras():
     PROJECT_NAME = "CustomerChurn-"+user_id
     EXPERIMENT_NAME = PROJECT_NAME
     experiment_name = EXPERIMENT_NAME.lower()
-    s3BucketFullPath = "full_data_csv"+user_id+"/"+minioFilename
+    s3BucketFullPath = "full_data_csv-"+user_id+"/"+minioFilename
 
     print("STUDENT CONFIGURATION")
     print("=====================")
