@@ -3,8 +3,8 @@ def get_hyper_paras():
     #
     # PLACE YOUR STUDENT CONFIGURATION INFORMATION IN THIS SECTION OF THE CODE
     #
-    user_id = "insert-the-username-your-instructor-gave-you-here"
-    minioFilename = "to-be-completed-by-student-at-the-end-of-lab-1.csv"
+    user_id = "user123"
+    minioFilename = "your.csv"
     # ##########################################################################
     
     # ##########################################################################    
